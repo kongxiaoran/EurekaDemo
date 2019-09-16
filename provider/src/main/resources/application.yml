@@ -1,0 +1,21 @@
+server:
+  port: 7900     #程序启动端口，也就是tomcat的端口
+spring:
+  application:
+    name: provider
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123@peer1:8761/eureka
+#    transport:
+#      retryableClientQuarantineRefreshPercentage: 1
+#eureka.server.peer-node-read-timeout-ms=200000
+security:
+  basic:
+    enabled: false
+        #开启安全配置，也就是需要密码，如果不需要设置为 false 即可，
+        #注意，这个参数必须放在application.yml中，不允许放在bootstrap.yml
+  user:
+    name: user
+    password: 123   #在配置了用户名和密码后，我们可以修改地址的访问风格为 curl 风格

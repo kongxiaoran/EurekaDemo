@@ -1,0 +1,30 @@
+server:
+  port: 8900
+spring:
+  application:
+    name: consumer
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123@peer1:8761/eureka
+
+ribbon:
+  OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
+  ReadTimeout: 5000   #负载均衡超时时间，默认值5000
+  ConnectTimeout: 3000 #ribbon请求连接的超时时间，默认值2000
+  MaxAutoRetries: 0     #对当前实例的重试次数，默认0
+  MaxAutoRetriesNextServer: 1 #对切换实例的重试次数，默认1
+
+logging:
+  level:
+    config.FeignClientConfig: debug   #给指定的 feign 设置日志输出级别，只有在debug的情况下才会打印日志
+
+
+PROVIDER-USER:   #服务的名字
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule    #给指定的服务配置负载均衡算法
+
+feign:
+  hystrix:
+    enabled: true   # 启动hystrix熔断机制

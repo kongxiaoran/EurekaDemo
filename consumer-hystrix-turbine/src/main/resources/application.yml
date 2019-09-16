@@ -1,0 +1,18 @@
+server:
+  port: 9900
+spring:
+  application:
+    name: consumer-hystrix-turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123@peer1:8761/eureka
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: consumer,provider
+  cluster-name-expression: "'default'"
+
+
+#  http://localhost:9900/turbine.stream?cluster=CONSUMER-ORDER-FEIGN-HYSTRIX
+#  监控服务（CONSUMER-ORDER-FEIGN-HYSTRIX）

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: EUREKA-HA
+  profiles:
+    active: peer1
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: peer1
+    prefer-ip-address: false                         # 客户端在注册时就会使用自己的ip地址而不是主机名(客户端自身加)
+    registerWithEureka: true
+    fetchRegistry: true                              #是否需要去检索寻找服务，默认是true
+    leaseRenewalIntervalInSeconds: 10             #renew频率，向Eureka服务发送renew信息，默认30秒
+    lease-renewal-interval-in-seconds: 5            # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 10           # 发呆时间，即服务续约到期时间（缺省为90s）
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    healthcheck.enabled: true                         # 开启健康检查（依赖spring-boot-starter-actuator）
+    serviceUrl:
+      defaultZone: http://user:123@peer2:8762/eureka,http://user:123@peer3:8763/eureka
+#      http://localhost:8763/eureka
+  server:
+      enable-self-preservation: false            #关闭自我保护
+      eviction-interval-time-in-ms: 10000
+
+security:
+  basic:
+    enabled: true
+        #开启安全配置，也就是需要密码，如果不需要设置为 false 即可，
+        #注意，这个参数必须放在application.yml中，不允许放在bootstrap.yml
+  user:
+    name: user
+    password: 123   #在配置了用户名和密码后，我们可以修改地址的访问风格为 curl 风格
+

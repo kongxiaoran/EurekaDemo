@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="consumer" />
+        <module name="consumer (1)" />
+        <module name="consumer-hystrix-turbine" />
+        <module name="consumerhystrixturbine" />
+        <module name="eureka" />
+        <module name="hystrix-dashboard" />
+        <module name="provider" />
+      </profile>
+      <profile name="Annotation profile for EurekaDemo" enabled="true">
+        <sourceOutputDir name="../eureka/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../eureka/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="consumer" target="1.7" />
+      <module name="consumer (1)" target="1.7" />
+      <module name="consumer-hystrix-turbine" target="1.7" />
+      <module name="consumerhystrixturbine" target="1.7" />
+      <module name="eureka" target="1.7" />
+      <module name="eureka (1)" target="1.7" />
+      <module name="EurekaDemo" target="1.8" />
+      <module name="hystrix-dashboard" target="1.7" />
+      <module name="provider" target="1.7" />
+      <module name="provider-user" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
