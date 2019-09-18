@@ -28,6 +28,10 @@
 http://localhost:8900/hystrix.stream			//8900为consumer所占端口
 ```
 
+​	![1568772187228](C:\Users\12541\AppData\Roaming\Typora\typora-user-images\1568772187228.png)
+
+（输入的参数为你需要监控的服务的端口）
+
 &emsp;&emsp;我们使用Hystrix-Dashboard 的原因是：它能可视化监控单体应用，也可以在它的基础上整合 Turbine，对集群进行监控。
 
 ##### 5.consumer-hystrix-turbine
@@ -55,6 +59,20 @@ http://localhost:8900/hystrix.stream			//8900为consumer所占端口
 ##### 3.provider（Eureka client）:
 
 &emsp;&emsp;Represents producers in a general sense. There is no special configuration on this node. Like other nodes, Spring Security is used to set up secure user authentication and protect eureka.
+
+##### 4.hystrix-dashboard :
+
+> &emsp;&emsp;*Hystrix* Source provides monitoring services for stand-alone computers and clusters, with  *Hystrix-Dashboard*, and  *Turbine* for clusters.
+
+&emsp;&emsp;*Ribbon* and *Hystrix* are two important components integrated in *Feign*, and consumer is a feign client. So we can use hystrix to monitor consumers directly on browsers:
+
+```markdown
+http://localhost:8900/hystrix.stream			//8900为consumer所占端口
+```
+
+![1568772187228](C:\Users\12541\AppData\Roaming\Typora\typora-user-images\1568772187228.png)（Input parameters for the ports of services you need to monitor）
+
+&emsp;&emsp;The reason why we use *Hystrix-Dashboard* is that it can monitor individual applications visually or integrate *Turbine* on the basis of *Hystrix-Dashboard* to monitor clusters.
 
 
 
